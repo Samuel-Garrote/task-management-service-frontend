@@ -1,0 +1,19 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+  <h2>Register</h2>
+
+  @if (errorMessage()) {
+    <p class="error-message">{{ errorMessage() }}</p>
+  }
+
+  <label>
+    Username
+    <input type="text" formControlName="username" />
+  </label>
+
+  <label>
+    Password
+    <input type="password" formControlName="password" />
+  </label>
+
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+</form>

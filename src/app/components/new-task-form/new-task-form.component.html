@@ -1,0 +1,22 @@
+<form [formGroup]="newTaskForm" (ngSubmit)="onSubmit()" class="inline-form">
+  @if (errorMessage()) {
+    <p class="error-message">{{ errorMessage() }}</p>
+  }
+
+  <label>
+    Title
+    <input type="text" formControlName="title" />
+  </label>
+
+  <label>
+    Project
+    <select formControlName="projectId">
+      <option [value]="null" disabled>Select a project</option>
+      @for (project of projects(); track project.id) {
+        <option [value]="project.id">{{ project.name }}</option>
+      }
+    </select>
+  </label>
+
+  <button type="submit" [disabled]="newTaskForm.invalid">Create task</button>
+</form>

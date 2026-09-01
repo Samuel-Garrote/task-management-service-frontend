@@ -1,0 +1,12 @@
+<form [formGroup]="newProjectForm" (ngSubmit)="onSubmit()" class="inline-form">
+  @if (errorMessage()) {
+    <p class="error-message">{{ errorMessage() }}</p>
+  }
+
+  <label>
+    Project name
+    <input type="text" formControlName="name" />
+  </label>
+
+  <button type="submit" [disabled]="newProjectForm.invalid">Create project</button>
+</form>

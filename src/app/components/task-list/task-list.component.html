@@ -1,0 +1,6 @@
+<div class="list-container">
+  <h2>Tasks</h2>
+  @for (task of tasks(); track task.id) {
+    <app-task-card [task]="task" />
+  }
+</div>
